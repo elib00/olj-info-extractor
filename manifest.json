@@ -2,9 +2,9 @@
   "manifest_version": 3,
   "name": "OLJ Info Extractor",
   "version": "0.1.0",
-  "description": "Extract header and body text from the current page.",
+  "description": "Easily extract OnlineJobs.ph job post details for AI to process, may it be for cover letters, job analysis, and more.",
   "action": {
-    "default_title": "Extract page info",
+    "default_title": "Extract OLJ job info",
     "default_popup": "popup.html"
   },
   "permissions": ["activeTab", "scripting"],
