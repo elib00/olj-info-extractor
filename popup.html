@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OLJ Info Extractor</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="top">
+      <h1>OLJ Info Extractor</h1>
+      <p class="sub">Job Overview · Skill Requirement · About the Employer</p>
+    </header>
+
+    <div class="actions">
+      <button id="extract" type="button">Extract</button>
+      <button id="copy" type="button" disabled>Copy</button>
+    </div>
+
+    <p id="status" class="status" aria-live="polite">Ready.</p>
+
+    <div id="results" class="results"></div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
