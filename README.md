@@ -1,28 +1,87 @@
 # OLJ Info Extractor
 
-Chrome/Edge (Manifest V3) extension that extracts **header** and **body** text from the current tab.
+Chrome extension that extracts key details from an [OnlineJobs.ph](https://www.onlinejobs.ph) job post into clean, structured text — ready to paste into an AI tool for cover letters, job analysis, and more.
 
-## Load it
+**Version:** 1.0.0 · **Manifest:** V3
 
-1. Open `chrome://extensions` (or `edge://extensions`)
-2. Enable **Developer mode**
+---
+
+## Compatibility
+
+Published on the **[Chrome Web Store](https://chromewebstore.google.com/)**. It runs in Chromium browsers that can install extensions from that store, including:
+
+- **Google Chrome**
+- **Brave**
+- **Microsoft Edge** (via Chrome Web Store — not listed on Edge Add-ons)
+- Other Chromium browsers with Chrome Web Store support (e.g. Vivaldi, Opera with Chrome extension support)
+
+It does **not** run on Firefox or Safari.
+
+---
+
+## What it extracts
+
+| Section | Description |
+| --- | --- |
+| **Job Overview** | Main job description from the listing |
+| **Skill Requirement** | Required skills (as a list when available) |
+| **About the Employer** | Employer / company details |
+| **Title & URL** | Page title and job post link |
+
+---
+
+## Install (developer / unpacked)
+
+1. Open `chrome://extensions`
+2. Turn on **Developer mode**
 3. Click **Load unpacked**
-4. Select this folder
+4. Select this project folder
 
-## Use it
+---
 
-1. Open any normal web page
-2. Click the extension icon
+## How to use
+
+1. Open a job post on **OnlineJobs.ph**
+2. Click the **OLJ Info Extractor** icon
 3. Press **Extract**
-4. Optionally **Copy** header + body
+4. Press **Copy** to put the structured text on your clipboard
+5. Paste into ChatGPT, Claude, or any other AI assistant
 
-## Custom selectors
+---
 
-When you have site-specific selectors, edit these two constants in `content.js`:
+## Permissions
 
-```js
-const HEADER_SELECTOR = "h1";
-const BODY_SELECTOR = "main, article, [role='main'], body";
+| Permission | Why it's needed |
+| --- | --- |
+| `activeTab` | Access the current job page when you click Extract |
+| `scripting` | Run the extractors on that page |
+
+The extension only runs when you trigger it — it does not browse other tabs or run in the background.
+
+---
+
+## Project structure
+
+```
+olj-info-extractor/
+├── manifest.json
+├── popup.html / popup.js / popup.css
+├── content.js                 # Orchestrates the three section extractors
+├── extractors/
+│   ├── shared.js              # Shared helpers
+│   ├── jobOverview.js
+│   ├── skillRequirement.js
+│   └── aboutTheEmployer.js
+└── icons/
+    ├── icon16.png
+    ├── icon48.png
+    └── icon128.png
 ```
 
-Comma-separated lists are supported; the first matching element wins.
+---
+
+## Notes
+
+- Designed for **OnlineJobs.ph job pages**. Open a listing first, then extract.
+- After changing files locally, click **Reload** on the extension card in `chrome://extensions`.
+- For public install, use the Chrome Web Store listing — not Edge Add-ons.
