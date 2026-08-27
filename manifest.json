@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "OLJ Info Extractor",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Easily extract OnlineJobs.ph job post details for AI to process, may it be for cover letters, job analysis, and more.",
   "action": {
     "default_title": "Extract OLJ job info",
